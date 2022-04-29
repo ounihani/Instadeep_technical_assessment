@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { AppHeader } from './components/AppHeader';
 import TemperatureSelector from './components/TemperatureSelector';
+import WeatherResult from './components/WeatherResult';
 
 
 
@@ -12,7 +13,7 @@ function App() {
         <AppHeader />
       </div>
       <TemperatureSelector />
-      {/* <WeatherCards /> */}
+      <WeatherResult />
     </>
 
   );
