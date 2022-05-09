@@ -6,7 +6,6 @@ import { RootState } from "../store/store";
 
 
 
-
 export default function WeatherResult() {
     const { WeatherList, loading } = useSelector((state: RootState) => state.weather)
 
@@ -22,13 +21,22 @@ export default function WeatherResult() {
                 back
             </Grid>
 
-            {WeatherList.map((daysWeather) => (
+            {WeatherList.map((dayWeather) => (
                 <Grid item
-                justifyContent="center"
-                alignItems="center"
-            >
-                <WeatherCard />
-            </Grid>
+                    justifyContent="center"
+                    alignItems="center"
+                    key={dayWeather.id}
+                >
+                    <WeatherCard
+
+                        id={dayWeather.id}
+                        day={dayWeather.day}
+                        temperature={dayWeather.temperature}
+                        icon={dayWeather.icon}
+                        condition={dayWeather.condition}
+                        description={dayWeather.description}
+                    />
+                </Grid>
             ))}
 
             <Grid item >

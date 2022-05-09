@@ -39,7 +39,7 @@ export const fetchWeatherAction = createAsyncThunk(
             };
 
             weatherObject.day = data.current.dt;
-            weatherObject.temperature = data.current.temp.day;
+            weatherObject.temperature = data.current.temp;
             weatherObject.icon = data.current.weather[0].icon;
             weatherObject.condition = data.current.weather[0].main;
             weatherObject.description = data.current.weather[0].description;
