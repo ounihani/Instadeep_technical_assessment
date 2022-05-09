@@ -1,16 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from "axios"
 
-
-interface Weather {
-    id: number,
-    day: number,
-    temperature: number,
-    icon: string,
-    condition: string,
-    description: string
-}
-
 interface WeatherSliceState {
     city: String;
     WeatherList: Weather[],
@@ -69,12 +59,6 @@ export const fetchWeatherAction = createAsyncThunk(
                     description: data.daily[i].weather[0].description,
                 }]
 
-                // weatherObject.id = i;
-                // weatherObject.temperature = data.daily[i].temp.day;
-                // weatherObject.icon = data.daily[i].weather[0].icon;
-                // weatherObject.condition = data.daily[i].weather[0].main;
-                // weatherObject.description = data.daily[i].weather[0].description;
-                // result[i + 1] = weatherObject;
             }
             return result;
             // console.log("result", typeof result);
