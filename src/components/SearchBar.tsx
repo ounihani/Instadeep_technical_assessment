@@ -2,13 +2,13 @@ import * as React from 'react';
 import Switch from '@mui/material/Switch';
 import Grid from '@mui/material/Grid';
 
-const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 export default function SearchBar() {
     return (
         <Grid container
             justifyContent="center"
             alignItems="center"
+            spacing={2}
         >
             <Grid item >
             </Grid>
@@ -16,12 +16,6 @@ export default function SearchBar() {
                 justifyContent="center"
                 alignItems="center"
             >
-                <div>
-
-                    <span>Celcius</span>
-                    <Switch {...label} defaultChecked />
-                    <span>Franheit</span>
-                </div>
             </Grid>
             <Grid item >
             </Grid>
