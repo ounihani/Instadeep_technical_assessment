@@ -1,6 +1,7 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import styled from "styled-components";
 
 type WeatherResultProps = {
   id: number,
@@ -12,6 +13,14 @@ type WeatherResultProps = {
 }
 
 
+const WeatherIcon = styled.img`
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+`;
+
+
 export default function WeatherCard(props: WeatherResultProps) {
   let day: string;
   if (props.id === -1) day = 'Yesterday'
@@ -20,9 +29,9 @@ export default function WeatherCard(props: WeatherResultProps) {
 
 
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: 275 }} >
       <CardContent>
-        <img alt="" src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`} />
+        <WeatherIcon alt="" src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`} />
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom margin={3}>
           {day}
         </Typography>
