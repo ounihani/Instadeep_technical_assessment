@@ -4,7 +4,7 @@ import axios from "axios"
 interface WeatherSliceState {
     city: String;
     WeatherList: Weather[],
-    temprature_unit: string,
+    tempratureUnit: string,
     loading: boolean,
     error: boolean
 }
@@ -86,7 +86,7 @@ export const fetchWeatherAction = createAsyncThunk(
 const initialState: WeatherSliceState = {
     city: "Tunis",
     WeatherList: [],
-    temprature_unit: 'C',
+    tempratureUnit: 'C',
     loading: true,
     error: false
 }
@@ -94,7 +94,12 @@ const initialState: WeatherSliceState = {
 export const WeatherSlice = createSlice({
     name: 'weather',
     initialState,
-    reducers: {},
+    reducers: {
+        switchTemperatureUnit: (state) => {
+            if (state.tempratureUnit === 'C') state.tempratureUnit = 'F'
+            else state.tempratureUnit = 'C'
+        },
+    },
     extraReducers: (builder) => {
         // Pending:
         builder.addCase(fetchWeatherAction.pending, (state, action) => {
@@ -122,4 +127,8 @@ export const WeatherSlice = createSlice({
         })
     },
 })
+
+export const { switchTemperatureUnit } = WeatherSlice.actions
+export default WeatherSlice.reducer
+
 

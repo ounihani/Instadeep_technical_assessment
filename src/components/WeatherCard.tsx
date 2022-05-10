@@ -2,6 +2,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import styled from "styled-components";
+import { useSelector } from 'react-redux';
+import { RootState } from "../store/store";
+
 
 type WeatherResultProps = {
   id: number,
@@ -27,7 +30,10 @@ export default function WeatherCard(props: WeatherResultProps) {
   else if (props.id === 0) day = 'Today'
   else day = (new Date(props.day * 1000)).toLocaleDateString("en-US");
 
+  const { tempratureUnit } = useSelector((state: RootState) => state.weather)
 
+  // the formula of conversion
+  let temperature = tempratureUnit === 'C' ? props.temperature - 273.15 : (props.temperature - 273.15) * 9 / 5 + 32 
   return (
     <Card sx={{ minWidth: 275 }} >
       <CardContent>
@@ -36,7 +42,7 @@ export default function WeatherCard(props: WeatherResultProps) {
           {day}
         </Typography>
         <Typography variant="h5" component="div" margin={3}>
-          Temperature: {props.temperature}
+          Temperature: {Math.round(temperature)} {tempratureUnit}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" margin={3}>
           <b>Weather Condition:</b> {props.condition}
