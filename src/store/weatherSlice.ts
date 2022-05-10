@@ -14,12 +14,10 @@ export const fetchWeatherAction = createAsyncThunk(
     "weather/fetch",
     async () => {
 
-        // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 
-
+        // the application key should not be hardcoded it should be retrieved from an environment instead ( to be changed )
         let result: Weather[];
         result = [];
-        // console.log("result1", typeof result);
         try {
             //getting the geolocation of the required city
             let { data } = await axios.get("http://api.openweathermap.org/geo/1.0/direct?q=tunis&appid=43258f0fdfec82ead8af1b77414e55b8");

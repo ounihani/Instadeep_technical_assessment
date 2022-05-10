@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Switch from '@mui/material/Switch';
 import Grid from '@mui/material/Grid';
 import { useDispatch } from 'react-redux';
