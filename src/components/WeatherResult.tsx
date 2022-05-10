@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useState } from 'react';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 const WeatherIcon = styled.img`
 display: block;
@@ -70,6 +71,24 @@ export default function WeatherResult() {
                     <ArrowForwardIosIcon />
                 </IconButton>
             </Grid>
+            <Grid container
+                justifyContent="center"
+                alignItems="center"
+                spacing={2}
+
+            >
+                <Grid item
+                    marginTop={5}
+                >
+                    <LineChart width={600} height={300} data={WeatherList}>
+                        <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
+                        <CartesianGrid stroke="#ccc" />
+                        <XAxis dataKey="day" />
+                        <YAxis />
+                    </LineChart>
+                </Grid>
+            </Grid>
+
         </Grid>
 
     );
