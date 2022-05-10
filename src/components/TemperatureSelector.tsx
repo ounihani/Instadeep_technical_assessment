@@ -22,6 +22,15 @@ export default function TemperatureSelector() {
             <Grid item
                 justifyContent="center"
                 alignItems="center"
+                marginRight={5}
+            >
+                <TextField fullWidth label="City" id="fullWidth" />
+
+            </Grid>
+
+            <Grid item
+                justifyContent="center"
+                alignItems="center"
             >
                 <div>
 
